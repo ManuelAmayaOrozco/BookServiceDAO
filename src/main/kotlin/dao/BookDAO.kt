@@ -31,7 +31,7 @@ class BookDAO(private val dataSource: DataSource, private val console: IOutputIn
     }
 
     override fun selectById(isbn: String): BookEntity? {
-        val sql = "SELECT * FROM library WHERE id = ?"
+        val sql = "SELECT * FROM library WHERE isbn = ?"
         return try {
             dataSource.connection.use { conn ->
                 conn.prepareStatement(sql).use { stmt ->
